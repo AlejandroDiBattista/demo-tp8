@@ -40,11 +40,9 @@ def crear_grafico_ventas(datos_producto, producto):
 
 def mostrar_informacion_alumno():
     with st.container(border=True):
-        st.markdown("""
-        **Legajo:** 55.555  
-        **Nombre:** Juan Pérez 
-        **Comisión:** C1
-        """)
+        st.markdown('**Legajo:** 55.555')
+        st.markdown('**Nombre:** Juan Pérez')
+        st.markdown('**Comisión:** C1')
 
 # Cargar los datos desde un archivo en el sidebar
 st.sidebar.header("Cargar archivo de datos")
@@ -62,7 +60,7 @@ if archivo_cargado is not None:
     # Filtrar datos por sucursal si no se selecciona "Todas"
     if sucursal_seleccionada != "Todas":
         datos = datos[datos['Sucursal'] == sucursal_seleccionada]
-        st.title(f"Datos de la Sucursal: {sucursal_seleccionada}")
+        st.title(f"Datos de {sucursal_seleccionada}")
     else:
         st.title("Datos de Todas las Sucursales")
     
@@ -72,7 +70,7 @@ if archivo_cargado is not None:
     for producto in productos:
         with st.container(border=True):
             # Filtrar datos por producto
-            st.subheader(f"Producto: {producto}")
+            st.subheader(f"{producto}")
             datos_producto = datos[datos['Producto'] == producto]
             
             # Calcular el precio promedio
