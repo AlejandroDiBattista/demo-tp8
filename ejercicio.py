@@ -39,15 +39,11 @@ def crear_grafico_ventas(datos_producto, producto):
     return fig
 
 def mostrar_informacion_alumno():
-    with st.expander("Información del Alumno", expanded=True):
+    with st.container(border=True):
         st.markdown("""
-        #### Información del Alumno
-        **Legajo:** 
-        ##### XXXX  
-        **Nombre:** 
-        ##### YYYY  
-        **Comisión:** 
-        ##### ZZZ
+        **Legajo:** 55.555  
+        **Nombre:** Juan Pérez 
+        **Comisión:** C1
         """)
 
 # Cargar los datos desde un archivo en el sidebar
@@ -76,6 +72,7 @@ if archivo_cargado is not None:
     for producto in productos:
         with st.container(border=True):
             # Filtrar datos por producto
+            st.subheader(f"Producto: {producto}")
             datos_producto = datos[datos['Producto'] == producto]
             
             # Calcular el precio promedio
